@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[OFF] dialog-modal</title>
+  <style>
+    :root { --bg:#0b1020; --card:#11182b; --muted:#9aa3b2; --accent:#6ea8fe; --txt:#e7eaf1; }
+    body { margin:0; font:14px/1.5 ui-sans-serif, system-ui; background:var(--bg); color:var(--txt); }
+    .wrap { max-width:880px; margin:24px auto; padding:16px; }
+    .card { background:var(--card); border:1px solid #1f263b; border-radius:14px; padding:16px; margin:12px 0; }
+    h1, h2 { margin:0 0 8px; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .muted { color: var(--muted) }
+    pre { background:#0f1629; padding:10px; border-radius:8px; overflow:auto; }
+    button { cursor:pointer }
+    
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Trace Map
+  Feature: dialog-modal
+  Flow: UI -> state -> pure -> effects
+  Tests: bấm trong khu vực 🧪
+  Gotchas: ...
+  -->
+  <h1>[OFF] dialog-modal</h1>
+  
+<section class="card" id="ui">
+  <h2>🎯 Demo</h2>
+  <button id="open">Mở modal</button>
+  <dialog id="dlg">
+    <div style="padding:16px; min-width:320px">
+      <h3>Xin chào 👋</h3>
+      <p>Đây là modal dùng phần tử <code>&lt;dialog&gt;</code>.</p>
+      <form method="dialog" class="row" style="justify-content:flex-end">
+        <button value="cancel">Hủy</button>
+        <button value="ok">OK</button>
+      </form>
+    </div>
+  </dialog>
+</section>
+<section class="card">
+  <h2>🧪 Tests</h2>
+  <div class="row">
+    <button data-test="open">Open</button>
+    <button data-test="close">Close</button>
+  </div>
+  <pre id="log"></pre>
+</section>
+
+</div>
+<script>
+
+const dlg = document.getElementById('dlg');
+document.getElementById('open').onclick = ()=> dlg.showModal();
+dlg.addEventListener('close', ()=> log('close:', dlg.returnValue));
+
+const logEl = document.getElementById('log');
+function log(...a){ logEl.textContent += a.join(' ')+'\n' }
+
+document.querySelector('[data-test="open"]').onclick = ()=>{ dlg.showModal(); log('test open ✅') };
+document.querySelector('[data-test="close"]').onclick = ()=>{ dlg.close('ok'); log('test close ✅') };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "OFF HTML": {
+    "prefix": "off:html",
+    "body": [
+      "<!doctype html>",
+      "<html lang=\"vi\">",
+      "<head>",
+      "  <meta charset=\"utf-8\" />",
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+      "  <title>[OFF] ${1:feature-name}</title>",
+      "  <style>body{font:14px/1.5 ui-sans-serif,system-ui;margin:24px}.card{border:1px solid #ddd;border-radius:12px;padding:12px;margin:10px 0}</style>",
+      "</head>",
+      "<body>",
+      "<h1>[OFF] ${1:feature-name}</h1>",
+      "<section class=\"card\"><h2>🎯 Demo</h2>${2:<!-- UI here -->}</section>",
+      "<section class=\"card\"><h2>🧪 Tests</h2><pre id=\"log\"></pre></section>",
+      "<script>// pure // state // effects // wiring + tests</script>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "OFF – One‑File Feature HTML template"
+  }
+}
