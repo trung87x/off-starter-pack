@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Babel: cho phép viết JSX trực tiếp trong trình duyệt (chỉ dùng khi sandbox/dev) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-presets="react">
+      const { StrictMode, useState } = React;
+
+      function App() {
+        const [count, setCount] = useState(0);
+        return (
+          <main>
+            <h1>Develop. Preview. Ship.</h1>
+            <p>React 18 chạy bằng UMD + Babel.</p>
+            <button onClick={() => setCount((c) => c + 1)}>
+              Bạn bấm {count} lần
+            </button>
+          </main>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("app"));
+      root.render(
+        <StrictMode>
+          <App />
+        </StrictMode>
+      );
+    </script>
+  </body>
+</html>

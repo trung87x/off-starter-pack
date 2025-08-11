@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Babel: cho phép viết JSX trực tiếp trong trình duyệt (chỉ dùng khi sandbox/dev) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="text/jsx">
+      const { StrictMode } = React;
+
+      import clsx from "clsx";
+
+      function StatusTag({ status }) {
+        return (
+          <>
+            <span
+              className={clsx("inline-flex", {
+                "bg-gray-100": status === "pending",
+                "bg-green-500": status === "paid",
+              })}
+            >
+              {status}
+            </span>
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <StatusTag status="pending" />
+          </>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("app"));
+      root.render(
+        <StrictMode>
+          <App />
+        </StrictMode>
+      );
+    </script>
+  </body>
+</html>

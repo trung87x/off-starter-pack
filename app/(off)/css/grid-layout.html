@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[OFF] css-grid-layout</title>
+  <style>
+    :root { --bg:#0b1020; --card:#11182b; --muted:#9aa3b2; --accent:#6ea8fe; --txt:#e7eaf1; }
+    body { margin:0; font:14px/1.5 ui-sans-serif, system-ui; background:var(--bg); color:var(--txt); }
+    .wrap { max-width:880px; margin:24px auto; padding:16px; }
+    .card { background:var(--card); border:1px solid #1f263b; border-radius:14px; padding:16px; margin:12px 0; }
+    h1, h2 { margin:0 0 8px; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .muted { color: var(--muted) }
+    pre { background:#0f1629; padding:10px; border-radius:8px; overflow:auto; }
+    button { cursor:pointer }
+    
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:12px;
+}
+.grid > div {
+  background:#0f1629; border:1px solid #223; border-radius:10px;
+  padding:16px; text-align:center;
+}
+
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Trace Map
+  Feature: css-grid-layout
+  Flow: UI -> state -> pure -> effects
+  Tests: bấm trong khu vực 🧪
+  Gotchas: ...
+  -->
+  <h1>[OFF] css-grid-layout</h1>
+  
+<section class="card">
+  <h2>🎯 Demo Grid</h2>
+  <div class="grid">
+    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+  </div>
+</section>
+<section class="card">
+  <h2>🗒️ Notes</h2>
+  <ul class="muted">
+    <li>Grid: repeat(auto-fit, minmax(160px, 1fr)) tạo layout responsive đơn giản.</li>
+    <li>Dùng <code>gap</code> thay vì <code>margin</code> giữa các item.</li>
+  </ul>
+</section>
+
+</div>
+<script>
+
+</script>
+</body>
+</html>
