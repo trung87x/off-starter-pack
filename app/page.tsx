@@ -1,5 +1,15 @@
+// import Header from "@/app/(off)/tailwind/Header";
+// import Image from "@/app/(off)/nextjs/Image";
+
 function Page() {
-  return <>Nội dung component</>;
+  return (
+    <>
+      {
+        // <Header />
+        // <Image />
+      }
+    </>
+  );
 }
 
 export default Page;
